@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Vaultly – a fast, minimal typing speed tester. Measure your WPM and accuracy in 60 seconds." />
+    <title>Typing Speed Tester</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- Header -->
+      <header>
+        <h1>⌨️ Typing Speed Tester</h1>
+        <p class="subtitle">How fast can you type? You have <strong>60 seconds</strong>.</p>
+      </header>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-box" id="timer-box">
+          <span class="stat-label">Time Left</span>
+          <span class="stat-value" id="timer">60</span>
+          <span class="stat-unit">sec</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">WPM</span>
+          <span class="stat-value" id="wpm">—</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Accuracy</span>
+          <span class="stat-value" id="accuracy">—</span>
+        </div>
+      </div>
+
+      <!-- Sample Text Display -->
+      <div class="text-display" id="text-display" aria-label="Sample text to type" role="region">
+        <!-- Characters are injected by JS as <span> elements -->
+      </div>
+
+      <!-- Typing Area -->
+      <textarea
+        id="input-area"
+        class="input-area"
+        placeholder="Start typing here to begin the timer…"
+        aria-label="Typing input"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+      ></textarea>
+
+      <!-- Action Button -->
+      <button id="restart-btn" class="btn" aria-label="Restart test">
+        Restart
+      </button>
+
+      <!-- Results Section (hidden until time ends) -->
+      <div class="results" id="results" aria-live="polite">
+        <h2>⏱ Time's Up!</h2>
+        <div class="results-grid">
+          <div class="result-card">
+            <span class="result-label">Words per Minute</span>
+            <span class="result-value" id="result-wpm">0</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Accuracy</span>
+            <span class="result-value" id="result-accuracy">0%</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Characters Typed</span>
+            <span class="result-value" id="result-chars">0</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label">Correct Characters</span>
+            <span class="result-value" id="result-correct">0</span>
+          </div>
+        </div>
+        <button class="btn" onclick="resetTest()">Try Again</button>
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
